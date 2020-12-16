@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         var recyclerView = findViewById<RecyclerView>(R.id.recyclerView) as RecyclerView
         recyclerView.layoutManager = LinearLayoutManager(this,RecyclerView.VERTICAL,false)
 
-        val makeCall = RetrofitClient.myCall
+        val makeCall = RetrofitClient.myRetrofit.getUsers()
         makeCall.enqueue(object : Callback<List<MyDataClass>> {
 
             override fun onResponse(
@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<List<MyDataClass>>, t: Throwable) {
-                Log.i("mytag","Faliure" + t.message)
+                Log.i("mytag","Faliure : " + t.message)
             }
         })
 

@@ -19,8 +19,8 @@ class RetrofitClient {
             .addConverterFactory(GsonConverterFactory.create())
             .baseUrl("https://jsonplaceholder.typicode.com/")
                        .build()
+            .create(ApiInterfaceOne::class.java)
 
-        val myApiInterface = myRetrofit.create(ApiInterfaceOne::class.java)
-        val myCall : Call<List<MyDataClass>> =  myApiInterface.getUsers()
+
     }
 }
